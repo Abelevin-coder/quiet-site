@@ -1,0 +1,63 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const lines = [
+  `My aunt, she married my uncle – he was great, they had 3 cousins. I used to play with one when I was younger, the second cousin wasn’t as closely related so I knew him less until one Sunday, he was sent home from school early – once removed. The 3rd cousin opened a shop when he got older, but we weren’t really playing then anymore, so we just exchanged post card.`,
+  `I took time off to catch up. I returned ahead of schedule.`,
+  `My friend said to me “I wish you that your dreams come true”. I couldn’t sleep all night, so I slept in the day. It felt like a dream, I pinched myself, but it didn’t work. What a nightmare.`
+];
+---
+
+<BaseLayout title="Or lines">
+  <div class="grid" aria-label="Lines">
+    {lines.map((t, i) => (
+      <details class="tile">
+        <summary aria-label={`Reveal line ${i + 1}`}></summary>
+        <div class="text">{t}</div>
+      </details>
+    ))}
+  </div>
+
+  <style>
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 0.9rem;
+      padding: 0 0 1.5rem;
+    }
+
+    .tile {
+      border: 1px solid var(--line, #2a2d36);
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.03);
+      overflow: hidden;
+    }
+
+    .tile > summary {
+      list-style: none;
+      cursor: pointer;
+      min-height: 110px;
+      padding: 0;
+    }
+
+    .tile > summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .tile:hover {
+      background: rgba(255, 255, 255, 0.045);
+    }
+
+    .tile:focus-within {
+      outline: 2px solid rgba(230, 231, 235, 0.6);
+      outline-offset: 2px;
+    }
+
+    .text {
+      padding: 0.9rem 1rem 1rem;
+      border-top: 1px solid var(--line, #2a2d36);
+      color: var(--muted, #b3b6c2);
+      white-space: pre-wrap;
+    }
+  </style>
+</BaseLayout>

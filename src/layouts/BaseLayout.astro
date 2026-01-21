@@ -1,0 +1,29 @@
+---
+const { title = "Index" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>{title}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+
+  <body>
+    <header>
+      <nav aria-label="Primary">
+        <a href="/">Home</a>
+        <a href="/context">Context</a>
+        <a href="/books">Books</a>
+        <a href="/gpts">GPTs</a>
+        <a href="/essays">Essays</a>
+        <a href="/tools">Tools</a>
+      </nav>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>

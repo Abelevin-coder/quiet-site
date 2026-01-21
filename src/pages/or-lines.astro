@@ -2,62 +2,72 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const lines = [
+  `My Dad used to take us on a walk around the park. One day, I asked him why we do go in, like all the other kids? He said he doesn’t know where the front door is.`,
+  `What does a professional golfer do when he retires? Play golf..?`,
+  `My Mom asked me what I wanted to be when I grew up. I said I wanted to be a retired policeman.`,
+  `I bought an old truck, and it only turns left and there’s a right on the way to work, so I drove backwards. It was beeping the whole way, when I got to work a police was waiting for me “Why didn’t you pull over when I put on my sirens?” he asked. “I looked in the rearview mirror, but I didn’t see anyone”, I shrugged. “Do you know how fast you were going?” Ya, minus 60 mph, you’ll probably owe me money on this one.`,
+  `I tell my dry humor jokes in the winter, and it stops raining. The weather man called to tell me it’s not funny!`,
+  `My friend said he started a new business and was looking for a friend to be his first client. Sure, what do you do? I’m a grave digger. Over my dead body. He said thank you!`,
+  `What’s the best way to get home in the rain? In the sun? In the snow?`,
+  `We were in the UK, my wife bought a summer coat. I bought a summer scarf.`,
+  `I waited online to shoplift a coat for $850. It was a gift for a friend and I needed a receipt.`,
+  `When do you make up your jokes? When I don’t have time for anything else.`,
+  `What do you do? I tell original jokes that are un-usually funny. What do you do the rest of the time? You mean, when they aren’t funny...`,
+  `Where do you live? I’m not different, I like to live wherever I am. You can ask where I’ll die though? Where? I don’t know yet.`,
+  `If you talk slower than the speed of sound, do the words get stuck in your mouth?`,
+  `What’s the dream? I prefer a good night’s sleep, thank you.`,
+  `I took the midnight train going anywhere, but I didn’t know how to get home.`,
+  `I have a grey parrot, and no one knows it’s mine. It lives in Africa.`,
   `My aunt, she married my uncle – he was great, they had 3 cousins. I used to play with one when I was younger, the second cousin wasn’t as closely related so I knew him less until one Sunday, he was sent home from school early – once removed. The 3rd cousin opened a shop when he got older, but we weren’t really playing then anymore, so we just exchanged post card.`,
   `I took time off to catch up. I returned ahead of schedule.`,
-  `My friend said to me “I wish you that your dreams come true”. I couldn’t sleep all night, so I slept in the day. It felt like a dream, I pinched myself, but it didn’t work. What a nightmare.`
+  `Someone blessed me that my dreams should come true. I couldn’t fall asleep at night; I slept in the day. It felt like a dream, I pinched myself, but it didn’t work. What a nightmare.`
 ];
 ---
 
 <BaseLayout title="Or lines">
-  <div class="grid" aria-label="Lines">
-    {lines.map((t, i) => (
-      <details class="tile">
-        <summary aria-label={`Reveal line ${i + 1}`}></summary>
+  <div class="masonry" aria-label="Or lines">
+    {lines.map((t) => (
+      <div class="tile">
         <div class="text">{t}</div>
-      </details>
+      </div>
     ))}
   </div>
 
   <style>
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-      gap: 0.9rem;
+    /* Variable-height bricks, no standard card size */
+    .masonry {
+      column-gap: 0.9rem;
+      columns: 3;
       padding: 0 0 1.5rem;
     }
 
+    @media (max-width: 900px) { .masonry { columns: 2; } }
+    @media (max-width: 560px) { .masonry { columns: 1; } }
+
     .tile {
+      break-inside: avoid;
+      -webkit-column-break-inside: avoid;
+
+      display: inline-block;
+      width: 100%;
+      margin: 0 0 0.9rem;
+
       border: 1px solid var(--line, #2a2d36);
       border-radius: 10px;
-      background: rgba(255, 255, 255, 0.03);
-      overflow: hidden;
+      background: rgba(255, 255, 255, 0.02);
     }
 
-    .tile > summary {
-      list-style: none;
-      cursor: pointer;
-      min-height: 110px;
-      padding: 0;
-    }
-
-    .tile > summary::-webkit-details-marker {
-      display: none;
-    }
-
-    .tile:hover {
-      background: rgba(255, 255, 255, 0.045);
-    }
-
-    .tile:focus-within {
-      outline: 2px solid rgba(230, 231, 235, 0.6);
-      outline-offset: 2px;
-    }
-
+    /* Faint by default = “linger” without attention */
     .text {
-      padding: 0.9rem 1rem 1rem;
-      border-top: 1px solid var(--line, #2a2d36);
+      padding: 0.9rem 1rem;
       color: var(--muted, #b3b6c2);
+      opacity: 0.08;
+      transition: opacity 120ms ease;
       white-space: pre-wrap;
     }
+
+    /* Reveal on hover only */
+    .tile:hover .text { opacity: 0.85; }
+    .tile:hover { background: rgba(255, 255, 255, 0.03); }
   </style>
 </BaseLayout>

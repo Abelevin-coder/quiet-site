@@ -100,3 +100,29 @@ hr{
   outline-offset: 3px;
   border-radius: 6px;
 }
+
+/* Sticky header (nav stays visible) */
+header{
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+
+/* Nav layout */
+nav[aria-label="Primary"]{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding: 0.75rem var(--pad);
+  max-width: var(--max);
+  margin: 0 auto;
+}
+
+/* Active label: visible, not loud */
+nav[aria-label="Primary"] a.active{
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+  text-decoration-thickness: 2px;
+}

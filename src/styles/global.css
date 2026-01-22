@@ -1,26 +1,31 @@
 /* Quiet baseline: readable, low-glare, low-insistence */
 
 :root{
-  /* Colors */
-  --bg: #0f1115;
-  --fg: #e6e7eb;
-  --muted: #b8bcc6;
-  --line: #2a2d36;
+  --bg: #f6f5f1;      /* warm paper */
+  --fg: #16181d;      /* near-black */
+  --muted: #5a616e;   /* secondary text */
+  --line: #d7d3ca;    /* hairline borders */
 
   /* Type + layout */
-  --max: 44rem;      /* slightly wider than before to reduce awkward wrapping */
+  --max-width: 42rem;      /* slightly wider than before to reduce awkward wrapping */
   --pad: 1.25rem;
-  --radius: 12px;
+  --radius: 10px;
 
   /* Reading comfort */
-  --lh: 1.72;        /* restorative line-height */
+  --lh: 1.6;        /* restorative line-height */
 }
 
-*{ box-sizing:border-box; }
+*{ box-sizing:border-box; 
+ }
 
-html, body{
-  margin:0;
-  padding:0;
+html{
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  margin: 0;
+  padding: 0;
   background: var(--bg);
   color: var(--fg);
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";

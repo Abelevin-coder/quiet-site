@@ -3,11 +3,63 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout title="Readings">
-  <section>
-    <h2>Essays</h2>
-  </section>
+  <div class="readings-grid">
+    <section>
+      <h2>Essays</h2>
+      <ul class="list">
+        <li>
+          <a href="/essays/on-speed/">On Speed</a>
+        </li>
+        <li>
+          <a href="/essays/when-escalation-replaces-responsibility/">When Escalation Replaces Responsibility</a>
+        </li>
+      </ul>
+    </section>
 
-  <section>
-    <h2>Books</h2>
-  </section>
+    <section>
+      <h2>Books</h2>
+      <ul class="list">
+        <li>
+          <span>When Effort Stops Working</span>
+          <span class="muted"> (in editorial review — 2026)</span>
+        </li>
+      </ul>
+    </section>
+  </div>
 </BaseLayout>
+
+<style>
+  .readings-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    margin-top: 1rem;
+  }
+
+  @media (min-width: 720px) {
+    .readings-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+  }
+
+  .list {
+    list-style: none;
+    padding: 0;
+    margin: 0.75rem 0 0 0;
+  }
+
+  .list li {
+    padding: 0.4rem 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .list li:first-child {
+    border-top: 1px solid var(--line);
+  }
+
+  .muted {
+    color: var(--muted);
+  }
+</style>

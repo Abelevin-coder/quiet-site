@@ -1,6 +1,9 @@
 ---
 import "../styles/global.css";
 const { title = "Index" } = Astro.props;
+
+const path = Astro.url.pathname;
+const isActive = (href: string) => (href === "/" ? path === "/" : path.startsWith(href));
 ---
 
 <!doctype html>
@@ -13,13 +16,13 @@ const { title = "Index" } = Astro.props;
 
   <body>
     <header>
-      <nav aria-label="Primary">
-  <a href="/orientation">Orientation</a>
-  <a href="/readings">Readings</a>
-  <a href="/or-lines">Or lines</a>
-  <a href="/gpts">GPTs</a>
-  <a href="/clarification">Clarification</a>
-  <a href="/eligibility">Eligibility</a>
+    <nav aria-label="Primary">
+  <a href="/orientation" class={isActive("/orientation") ? "active" : ""}>Orientation</a>
+  <a href="/readings" class={isActive("/readings") ? "active" : ""}>Readings</a>
+  <a href="/or-lines" class={isActive("/or-lines") ? "active" : ""}>Or lines</a>
+  <a href="/gpts" class={isActive("/gpts") ? "active" : ""}>GPTs</a>
+  <a href="/clarification" class={isActive("/clarification") ? "active" : ""}>Clarification</a>
+  <a href="/eligibility" class={isActive("/eligibility") ? "active" : ""}>Eligibility</a>
 </nav>
     </header>
 

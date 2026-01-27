@@ -126,3 +126,12 @@ nav[aria-label="Primary"] a.active{
   text-underline-offset: 0.25em;
   text-decoration-thickness: 2px;
 }
+
+.gpt-link{
+  color: #2b6cb0; /* calm blue */
+  text-decoration: none;
+}
+
+.gpt-link:hover{
+  text-decoration: underline;
+}

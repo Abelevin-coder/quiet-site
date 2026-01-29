@@ -135,3 +135,20 @@ nav[aria-label="Primary"] a.active{
 .gpt-link:hover{
   text-decoration: underline;
 }
+
+.gpt-disclaimer {
+  margin-top: 2.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+  max-width: 70ch;
+}
+
+.gpt-disclaimer h2 {
+  margin: 0 0 0.75rem 0;
+  font-size: 1.05rem;
+}
+
+.gpt-disclaimer p {
+  margin: 0 0 0.75rem 0;
+  line-height: 1.55;
+}

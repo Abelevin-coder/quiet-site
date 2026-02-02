@@ -148,6 +148,13 @@ nav[aria-label="Primary"] a.active{
   font-size: 1.05rem;
 }
 
+/* Essay header spacing */
+.essay-header .meta{
+  margin-bottom: 1.75rem;
+  color: var(--muted);
+}
+
+
 .gpt-disclaimer p {
   margin: 0 0 0.75rem 0;
   line-height: 1.55;

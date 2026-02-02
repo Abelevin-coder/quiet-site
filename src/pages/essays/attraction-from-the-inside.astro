@@ -3,28 +3,30 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout title="Attraction From the Inside">
-  <!-- Password gate -->
+  <!-- Password gate (single) -->
   <div id="gate">
     <p>This essay is shared privately.</p>
+
     <input
       type="password"
       id="pw"
       placeholder="Password"
       style="margin-top: 1rem;"
     />
-    <button onclick="unlock()" style="margin-left: 0.5rem;">
+
+    <button id="enterBtn" style="margin-left: 0.5rem;">
       Enter
     </button>
   </div>
 
-  <!-- Essay content (hidden until unlocked) -->
+  <!-- Essay content (single) -->
   <div id="content" style="display: none;">
     <h1>Attraction From the Inside</h1>
     <p><em>Why attraction is rarely the confusing part</em></p>
     <p><em>Abe Levin · January 2026</em></p>
 
     <p>
-      By the time I was doing well by most measure — work that mattered,
+      By the time I was doing well by most measures — work that mattered,
       financial independence, a life that felt chosen rather than inherited —
       I had learned how to move easily through rooms. I knew how to be seen
       without asking to be. I knew how to speak clearly, when to hold back,
@@ -151,9 +153,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
       no longer settles into anything.
     </p>
 
-    <p>
-      From the inside, this feels like being seen without being met.
-    </p>
+    <p>From the inside, this feels like being seen without being met.</p>
 
     <p>
       I noticed this echoed in how attraction is presented around us — in
@@ -188,9 +188,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
       accurate.
     </p>
 
-    <p>
-      The difference is simple, even if it took time to name:
-    </p>
+    <p>The difference is simple, even if it took time to name:</p>
 
     <p>
       Attraction can open a door.<br />
@@ -218,52 +216,32 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
     </p>
   </div>
 
-<div id="gate">
-  <p>This essay is shared privately.</p>
+  <script is:inline>
+    const PASSWORD = "attraction";
 
-  <input
-    type="password"
-    id="pw"
-    placeholder="Password"
-    style="margin-top: 1rem;"
-  />
+    function unlock() {
+      const input = document.getElementById("pw");
+      const gate = document.getElementById("gate");
+      const content = document.getElementById("content");
+      if (!input || !gate || !content) return;
 
-  <button id="enterBtn" style="margin-left: 0.5rem;">
-    Enter
-  </button>
-</div>
-
-<div id="content" style="display: none;">
-  <!-- your essay content stays here -->
-</div>
-
-<script is:inline>
-  const PASSWORD = "attraction";
-
-  function unlock() {
-    const input = document.getElementById("pw");
-    const gate = document.getElementById("gate");
-    const content = document.getElementById("content");
-    if (!input || !gate || !content) return;
-
-    const pw = input.value.trim();
-    if (pw === PASSWORD) {
-      gate.style.display = "none";
-      content.style.display = "block";
+      const pw = input.value.trim();
+      if (pw === PASSWORD) {
+        gate.style.display = "none";
+        content.style.display = "block";
+      }
     }
-  }
 
-  document.addEventListener("DOMContentLoaded", () => {
-    const btn = document.getElementById("enterBtn");
-    const input = document.getElementById("pw");
+    document.addEventListener("DOMContentLoaded", () => {
+      const btn = document.getElementById("enterBtn");
+      const input = document.getElementById("pw");
 
-    if (btn) btn.addEventListener("click", unlock);
-    if (input) {
-      input.addEventListener("keydown", (e) => {
-        if (e.key === "Enter") unlock();
-      });
-    }
-  });
-</script>
-
-
+      if (btn) btn.addEventListener("click", unlock);
+      if (input) {
+        input.addEventListener("keydown", (e) => {
+          if (e.key === "Enter") unlock();
+        });
+      }
+    });
+  </script>
+</BaseLayout>

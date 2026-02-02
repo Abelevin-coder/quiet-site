@@ -219,12 +219,22 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
   </div>
 
   <script>
-    function unlock() {
-      const pw = document.getElementById("pw").value;
-      if (pw === "attraction") {
-        document.getElementById("gate").style.display = "none";
-        document.getElementById("content").style.display = "block";
-      }
+  function unlock() {
+    const pw = document.getElementById("pw").value.trim(); // <-- key change
+    if (pw === "attraction") {
+      document.getElementById("gate").style.display = "none";
+      document.getElementById("content").style.display = "block";
     }
-  </script>
-</BaseLayout>
+  }
+
+  // allow pressing Enter inside the password field
+  document.addEventListener("DOMContentLoaded", () => {
+    const input = document.getElementById("pw");
+    if (input) {
+      input.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") unlock();
+      });
+    }
+  });
+</script>
+

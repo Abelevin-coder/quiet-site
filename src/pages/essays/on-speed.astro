@@ -1,11 +1,12 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
+import EssayLayout from "../../layouts/EssayLayout.astro";
+
+const title = "On Speed";
+const author = "Abe Levin";
+const date = "January 18, 2026";
 ---
 
-<BaseLayout title="On Speed">
-  <h1>On Speed</h1>
-  <p><em>Abe Levin · January 18, 2026</em></p>
-
+<EssayLayout title={title} author={author} date={date}>
   <p>Something subtle has changed in the environment.</p>
 
   <p>
@@ -65,4 +66,4 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
   <p>Nothing is broken.</p>
 
   <p>Order was simply asked to carry more speed than it could hold.</p>
-</BaseLayout>
+</EssayLayout>

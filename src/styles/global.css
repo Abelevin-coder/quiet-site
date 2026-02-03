@@ -15,8 +15,9 @@
   --lh: 1.6;        /* restorative line-height */
 }
 
-*{ box-sizing:border-box; 
- }
+*{
+  box-sizing: border-box;
+}
 
 html{
   margin: 0;
@@ -37,8 +38,9 @@ body{
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Base content wrapper */
 main{
-  max-width: var(--max);
+  max-width: var(--max-width);
   margin: 0 auto;
   padding: 1.75rem var(--pad) 3rem;
 }
@@ -85,11 +87,13 @@ li{
 }
 
 /* “Muted” utility if you use it */
-.muted{ color: var(--muted); }
+.muted{
+  color: var(--muted);
+}
 
 /* Optional: subtle divider */
 hr{
-  border:0;
+  border: 0;
   border-top: 1px solid var(--line);
   margin: 2rem 0;
 }
@@ -116,7 +120,7 @@ nav[aria-label="Primary"]{
   flex-wrap: wrap;
   gap: 0.75rem;
   padding: 0.75rem var(--pad);
-  max-width: var(--max);
+  max-width: var(--max-width);
   margin: 0 auto;
 }
 
@@ -136,16 +140,21 @@ nav[aria-label="Primary"] a.active{
   text-decoration: underline;
 }
 
-.gpt-disclaimer {
+.gpt-disclaimer{
   margin-top: 2.5rem;
   padding-top: 1.25rem;
   border-top: 1px solid rgba(0, 0, 0, 0.12);
   max-width: 70ch;
 }
 
-.gpt-disclaimer h2 {
+.gpt-disclaimer h2{
   margin: 0 0 0.75rem 0;
   font-size: 1.05rem;
+}
+
+.gpt-disclaimer p{
+  margin: 0 0 0.75rem 0;
+  line-height: 1.55;
 }
 
 /* Essay header spacing */
@@ -155,7 +164,101 @@ nav[aria-label="Primary"] a.active{
 }
 
 
-.gpt-disclaimer p {
-  margin: 0 0 0.75rem 0;
-  line-height: 1.55;
+/* =========================
+   Essay shell (2-column)
+   Only applies when you use .essay-shell markup
+   ========================= */
+
+:root{
+  --essay-shell: 66rem;   /* overall width of essay + sidebar */
+  --essay-measure: 45rem; /* reading column width */
+  --essay-gap: 3rem;
+  --essay-font: 1.125rem;
+  --essay-lh: 1.85;
+}
+
+.essay-shell{
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 240px;
+  gap: var(--essay-gap);
+  align-items: start;
+  max-width: var(--essay-shell);
+  margin: 0 auto;
+  padding: 3rem var(--pad) 3.5rem;
+}
+
+.essay-main{
+  max-width: var(--essay-measure);
+  font-size: var(--essay-font);
+  line-height: var(--essay-lh);
+}
+
+.essay-main p{
+  margin: 0 0 1.25rem 0; /* more breathing room than global paragraphs */
+}
+
+/* Sidebar */
+.essay-aside{
+  position: sticky;
+  top: 2rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.meta-block .meta-label{
+  font-weight: 600;
+  opacity: 0.8;
+  color: var(--fg);
+}
+
+.meta-block .meta-title{
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-top: 0.25rem;
+  color: var(--fg);
+}
+
+.meta-rule{
+  border: 0;
+  border-top: 1px solid var(--line);
+  margin: 1.5rem 0;
+}
+
+.meta-tags div{
+  margin: 0.4rem 0;
+}
+
+/* Reader's note (quiet callout) */
+.readers-note{
+  margin: 1.5rem 0 1.75rem;
+  padding: 1rem 1.25rem;
+  border-left: 3px solid color-mix(in oklab, var(--fg) 18%, transparent);
+  background: color-mix(in oklab, var(--fg) 4%, transparent);
+}
+
+/* Optional: drop cap like the screenshot
+   Add class="dropcap" to .essay-main to enable */
+.dropcap p:first-of-type::first-letter{
+  float: left;
+  font-size: 3.5em;
+  line-height: 0.9;
+  padding-right: 0.12em;
+  padding-top: 0.05em;
+}
+
+/* Mobile collapse */
+@media (max-width: 900px){
+  .essay-shell{
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+    padding-top: 2rem;
+  }
+
+  .essay-aside{
+    position: static;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--line);
+  }
 }

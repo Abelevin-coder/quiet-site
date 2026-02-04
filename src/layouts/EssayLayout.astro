@@ -1,29 +1,24 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
 
-const {
-  title,
-  subtitle,
-  author,
-  date,
-} = Astro.props;
+const { title, subtitle, author, date } = Astro.props;
 ---
 
 <BaseLayout title={title}>
   <div class="essay-shell">
-    <main class="essay-main dropcap">
+    <article class="essay-main dropcap">
       <h1>{title}</h1>
 
       {subtitle && <p><em>{subtitle}</em></p>}
       {author && date && <p><em>{author} · {date}</em></p>}
 
       <slot />
-    </main>
+    </article>
 
     <aside class="essay-aside">
       <div class="meta-block">
         <div class="meta-label">Essay</div>
-        <div class="meta-title">{date}</div>
+        {date && <div class="meta-title">{date}</div>}
       </div>
     </aside>
   </div>

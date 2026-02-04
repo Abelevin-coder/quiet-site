@@ -7,29 +7,29 @@
   --line: #d7d3ca;    /* hairline borders */
 
   /* Type + layout */
-  --max-width: 42rem;      /* slightly wider than before to reduce awkward wrapping */
+  --max-width: 42rem;      /* default content width */
   --pad: 1.25rem;
   --radius: 10px;
 
   /* Reading comfort */
-  --lh: 1.6;        /* restorative line-height */
+  --lh: 1.6;
 }
 
 *{
   box-sizing: border-box;
 }
 
-html{
+html,
+body{
   margin: 0;
   padding: 0;
 }
 
 body{
-  margin: 0;
-  padding: 0;
   background: var(--bg);
   color: var(--fg);
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
+    "Apple Color Emoji","Segoe UI Emoji";
   font-size: 16px;
   line-height: var(--lh);
   font-weight: 400;
@@ -38,31 +38,50 @@ body{
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Base content wrapper */
+/* =========================
+   Base content wrapper
+   ========================= */
+
 main{
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 1.75rem var(--pad) 3rem;
 }
 
-/* Links: present, not loud */
+/* IMPORTANT:
+   Allow essay pages to exceed the global width */
+main:has(.essay-shell){
+  max-width: none;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* =========================
+   Links
+   ========================= */
+
 a{
   color: var(--fg);
   text-decoration: underline;
   text-decoration-color: color-mix(in oklab, var(--fg) 40%, transparent);
   text-underline-offset: 3px;
 }
+
 a:hover{
   text-decoration-color: color-mix(in oklab, var(--fg) 70%, transparent);
 }
 
-/* Headings: not “poster sized” */
+/* =========================
+   Headings
+   ========================= */
+
 h1{
   font-size: 1.4rem;
   line-height: 1.25;
   margin: 0 0 1rem 0;
   font-weight: 500;
 }
+
 h2{
   font-size: 1.05rem;
   line-height: 1.35;
@@ -71,41 +90,52 @@ h2{
   color: var(--fg);
 }
 
-/* Paragraph rhythm */
+/* =========================
+   Paragraph rhythm
+   ========================= */
+
 p{
   margin: 0 0 1rem 0;
   color: var(--fg);
 }
 
-/* Lists: the usual source of “eye strain” on dense pages */
+/* =========================
+   Lists
+   ========================= */
+
 ul, ol{
   margin: 0.5rem 0 1.5rem 1.25rem;
   padding: 0;
 }
+
 li{
-  margin: 0 0 0.75rem 0; /* breathing room between items */
+  margin: 0 0 0.75rem 0;
 }
 
-/* “Muted” utility if you use it */
+/* =========================
+   Utilities
+   ========================= */
+
 .muted{
   color: var(--muted);
 }
 
-/* Optional: subtle divider */
 hr{
   border: 0;
   border-top: 1px solid var(--line);
   margin: 2rem 0;
 }
 
-/* Keyboard focus: visible, quiet */
 :focus-visible{
   outline: 2px solid color-mix(in oklab, var(--fg) 55%, transparent);
   outline-offset: 3px;
   border-radius: 6px;
 }
 
-/* Sticky header (nav stays visible) */
+/* =========================
+   Header / Nav
+   ========================= */
+
 header{
   position: sticky;
   top: 0;
@@ -114,7 +144,6 @@ header{
   border-bottom: 1px solid var(--line);
 }
 
-/* Nav layout */
 nav[aria-label="Primary"]{
   display: flex;
   flex-wrap: wrap;
@@ -124,15 +153,18 @@ nav[aria-label="Primary"]{
   margin: 0 auto;
 }
 
-/* Active label: visible, not loud */
 nav[aria-label="Primary"] a.active{
   text-decoration: underline;
   text-underline-offset: 0.25em;
   text-decoration-thickness: 2px;
 }
 
+/* =========================
+   GPT bits
+   ========================= */
+
 .gpt-link{
-  color: #2b6cb0; /* calm blue */
+  color: #2b6cb0;
   text-decoration: none;
 }
 
@@ -143,7 +175,7 @@ nav[aria-label="Primary"] a.active{
 .gpt-disclaimer{
   margin-top: 2.5rem;
   padding-top: 1.25rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.12);
+  border-top: 1px solid rgba(0,0,0,0.12);
   max-width: 70ch;
 }
 
@@ -157,21 +189,13 @@ nav[aria-label="Primary"] a.active{
   line-height: 1.55;
 }
 
-/* Essay header spacing */
-.essay-header .meta{
-  margin-bottom: 1.75rem;
-  color: var(--muted);
-}
-
-
 /* =========================
-   Essay shell (2-column)
-   Only applies when you use .essay-shell markup
+   Essay shell (two-column)
    ========================= */
 
 :root{
-  --essay-shell: 66rem;   /* overall width of essay + sidebar */
-  --essay-measure: 45rem; /* reading column width */
+  --essay-shell: 66rem;     /* total width */
+  --essay-measure: 45rem;  /* reading column */
   --essay-gap: 3rem;
   --essay-font: 1.125rem;
   --essay-lh: 1.85;
@@ -179,7 +203,7 @@ nav[aria-label="Primary"] a.active{
 
 .essay-shell{
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 240px;
+  grid-template-columns: minmax(0,1fr) 240px;
   gap: var(--essay-gap);
   align-items: start;
   max-width: var(--essay-shell);
@@ -194,10 +218,13 @@ nav[aria-label="Primary"] a.active{
 }
 
 .essay-main p{
-  margin: 0 0 1.25rem 0; /* more breathing room than global paragraphs */
+  margin: 0 0 1.25rem 0;
 }
 
-/* Sidebar */
+/* =========================
+   Sidebar
+   ========================= */
+
 .essay-aside{
   position: sticky;
   top: 2rem;
@@ -219,17 +246,10 @@ nav[aria-label="Primary"] a.active{
   color: var(--fg);
 }
 
-.meta-rule{
-  border: 0;
-  border-top: 1px solid var(--line);
-  margin: 1.5rem 0;
-}
+/* =========================
+   Reader’s note
+   ========================= */
 
-.meta-tags div{
-  margin: 0.4rem 0;
-}
-
-/* Reader's note (quiet callout) */
 .readers-note{
   margin: 1.5rem 0 1.75rem;
   padding: 1rem 1.25rem;
@@ -237,8 +257,10 @@ nav[aria-label="Primary"] a.active{
   background: color-mix(in oklab, var(--fg) 4%, transparent);
 }
 
-/* Optional: drop cap like the screenshot
-   Add class="dropcap" to .essay-main to enable */
+/* =========================
+   Drop cap
+   ========================= */
+
 .dropcap p:first-of-type::first-letter{
   float: left;
   font-size: 3.5em;
@@ -247,7 +269,10 @@ nav[aria-label="Primary"] a.active{
   padding-top: 0.05em;
 }
 
-/* Mobile collapse */
+/* =========================
+   Mobile
+   ========================= */
+
 @media (max-width: 900px){
   .essay-shell{
     grid-template-columns: 1fr;

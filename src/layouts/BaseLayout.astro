@@ -18,7 +18,6 @@ const isActive = (href: string) => (href === "/" ? path === "/" : path.startsWit
   <header>
     <nav aria-label="Primary">
       <a href="/" class={isActive("/") ? "active" : ""}>Home</a>
-      <a href="/orientation" class={isActive("/orientation") ? "active" : ""}>Orientation</a>
       <a href="/readings" class={isActive("/readings") ? "active" : ""}>Readings</a>
       <a href="/or-lines" class={isActive("/or-lines") ? "active" : ""}>Or lines</a>
       <a href="/gpts" class={isActive("/gpts") ? "active" : ""}>GPTs</a>

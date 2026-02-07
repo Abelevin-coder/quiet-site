@@ -293,3 +293,9 @@ nav[aria-label="Primary"] a.active{
   margin: 3rem auto 0;   /* centered, with breathing room */
 }
 
+.essay-gate .readers-note {
+  border-left: 3px solid var(--line);
+  padding-left: 1rem;
+  margin: 1.5rem 0;
+}
+

@@ -1,162 +1,245 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const title = "Attraction From the Outside";
+const byline = "Anonymous · February 1, 2026";
+
+/**
+ * Change this.
+ * Note: client-side gating only (content still exists in page source).
+ */
+const PASSWORD = "attraction";
+const STORAGE_KEY = "pw_attraction_outside_unlocked";
 ---
 
-<BaseLayout title="Attraction From the Outside">
-  <h1>Attraction From the Outside</h1>
-  <p><em>Anonymous · February 1, 2026</em></p>
+<BaseLayout title={title}>
+  <!-- Gate -->
+  <div id="gate" style="display:none;">
+    <p>This essay is shared privately.</p>
 
-  <p>
-    For a long time, being attractive was the organizing principle of my life.
-    Not only in relationships, but everywhere else too. It promised visibility,
-    momentum, and reward. It was an energizing experience that flowed. I moved
-    through the world expecting that if I kept becoming more attractive it would
-    grow and fill in everything else behind it.
-  </p>
+    <div class="gate-row">
+      <input
+        type="password"
+        id="pw"
+        placeholder="Password"
+        autocomplete="off"
+      />
+      <button type="button" id="enter">Enter</button>
+    </div>
+  </div>
 
-  <p>
-    For a time, it felt that way. Things moved more easily. I was fluent, and I
-    let it carry me internally, socially, and professionally. Attention
-    followed. Opportunity followed. There was a sense that I was on the right
-    track without needing to think too much about where it led.
-  </p>
+  <!-- Content (hidden until unlocked) -->
+  <article id="content" style="display:none;">
+    <h1>{title}</h1>
+    <p><em>{byline}</em></p>
 
-  <p>
-    What made it convincing was how complete it felt. I could be sitting across
-    from someone, sharing a drink, trading a few easy lines of conversation, and
-    the moment already felt full. There was warmth, focus, a sense of closeness
-    that didn’t require anything more to be known. Nothing needed to unfold. The
-    experience felt finished as it was happening.
-  </p>
+    <p>
+      For a long time, being attractive was the organizing principle of my life.
+      Not only in relationships, but everywhere else too. It promised visibility,
+      momentum, and reward. It was an energizing experience that flowed. I moved
+      through the world expecting that if I kept becoming more attractive it would
+      grow and fill in everything else behind it.
+    </p>
 
-  <p>That same feeling returned again and again, unchanged.</p>
+    <p>
+      For a time, it felt that way. Things moved more easily. I was fluent, and I
+      let it carry me internally, socially, and professionally. Attention
+      followed. Opportunity followed. There was a sense that I was on the right
+      track without needing to think too much about where it led.
+    </p>
 
-  <p>
-    Over time, there was a slight thinning that didn’t relent. Not exhaustion or
-    burnout, but something quieter. A sense of suspension, as if something
-    essential was being skipped rather than missing.
-  </p>
+    <p>
+      What made it convincing was how complete it felt. I could be sitting across
+      from someone, sharing a drink, trading a few easy lines of conversation, and
+      the moment already felt full. There was warmth, focus, a sense of closeness
+      that didn’t require anything more to be known. Nothing needed to unfold. The
+      experience felt finished as it was happening.
+    </p>
 
-  <p>
-    Only later did it become clear that nothing was arriving. Whatever should
-    have come next kept being deferred. Still, I wasn’t asking what was missing.
-    I was asking how to keep this going long enough for something to finally
-    settle.
-  </p>
+    <p>That same feeling returned again and again, unchanged.</p>
 
-  <p>
-    Refine it, that was the answer. Attraction needs better calibration, cleaner
-    execution, more consistency. If it isn’t settling, it must not yet be
-    sufficient. So, I paid attention to how I appeared, how I moved, how things
-    landed with others. It was a discipline of perfection that absorbed my
-    experience.
-  </p>
+    <p>
+      Over time, there was a slight thinning that didn’t relent. Not exhaustion or
+      burnout, but something quieter. A sense of suspension, as if something
+      essential was being skipped rather than missing.
+    </p>
 
-  <p>
-    That sense of completeness was convincing. Attraction carried enough
-    immediacy to feel alive, an intensity that didn’t dim. I stayed engaged.
-  </p>
+    <p>
+      Only later did it become clear that nothing was arriving. Whatever should
+      have come next kept being deferred. Still, I wasn’t asking what was missing.
+      I was asking how to keep this going long enough for something to finally
+      settle.
+    </p>
 
-  <p>
-    Over time, a pattern became hard to ignore. That same sense of completeness
-    repeated without deepening. Each encounter was isolated with nothing carried
-    over from one to the next.
-  </p>
+    <p>
+      Refine it, that was the answer. Attraction needs better calibration, cleaner
+      execution, more consistency. If it isn’t settling, it must not yet be
+      sufficient. So, I paid attention to how I appeared, how I moved, how things
+      landed with others. It was a discipline of perfection that absorbed my
+      experience.
+    </p>
 
-  <p>Time passed and nothing accumulated. Familiarity brought ease, not closeness.</p>
+    <p>
+      That sense of completeness was convincing. Attraction carried enough
+      immediacy to feel alive, an intensity that didn’t dim. I stayed engaged.
+    </p>
 
-  <p>
-    Not a disappointment exactly. More like a quiet mismatch between how
-    complete something appeared and how little it seemed to carry forward. I
-    started losing the sense that anything was actually building.
-  </p>
+    <p>
+      Over time, a pattern became hard to ignore. That same sense of completeness
+      repeated without deepening. Each encounter was isolated with nothing carried
+      over from one to the next.
+    </p>
 
-  <p>
-    Instead of questioning where this was going, I questioned myself again. I
-    assumed I wasn’t leaning in far enough or staying long enough to let things
-    unfold the way they were meant to. The answer was more patience and trust in
-    what already felt real.
-  </p>
+    <p>Time passed and nothing accumulated. Familiarity brought ease, not closeness.</p>
 
-  <p>I continued to live inside moments that felt vivid while they were happening.</p>
+    <p>
+      Not a disappointment exactly. More like a quiet mismatch between how
+      complete something appeared and how little it seemed to carry forward. I
+      started losing the sense that anything was actually building.
+    </p>
 
-  <p>
-    What eventually failed was not attraction, and not effort. It was endurance.
-  </p>
+    <p>
+      Instead of questioning where this was going, I questioned myself again. I
+      assumed I wasn’t leaning in far enough or staying long enough to let things
+      unfold the way they were meant to. The answer was more patience and trust in
+      what already felt real.
+    </p>
 
-  <p>
-    The strain didn’t show up as crisis. It showed up as maintenance. Each
-    interaction required a small but constant act of holding—holding interest,
-    holding openness, holding possibility. Nothing was wrong enough to stop, but
-    nothing was stable enough to rest on.
-  </p>
+    <p>I continued to live inside moments that felt vivid while they were happening.</p>
 
-  <p>
-    Over time, I noticed how much regulation was happening in the background.
-    Attention had to be managed. Exposure had to be calibrated. I stayed alert
-    to signals, to shifts in tone, to ascertain whether something was cooling or
-    still alive. I remained slightly mobilized, as if readiness itself were the
-    condition for staying connected.
-  </p>
+    <p>
+      What eventually failed was not attraction, and not effort. It was endurance.
+    </p>
 
-  <p>
-    I could feel the cost in how little margin remained. Not exhaustion—there
-    was still energy—but a narrowing. Fewer interactions that felt complete.
-  </p>
+    <p>
+      The strain didn’t show up as crisis. It showed up as maintenance. Each
+      interaction required a small but constant act of holding—holding interest,
+      holding openness, holding possibility. Nothing was wrong enough to stop, but
+      nothing was stable enough to rest on.
+    </p>
 
-  <p>
-    This is where the system compensates. When continuity isn’t provided
-    externally, it gets simulated internally.
-  </p>
+    <p>
+      Over time, I noticed how much regulation was happening in the background.
+      Attention had to be managed. Exposure had to be calibrated. I stayed alert
+      to signals, to shifts in tone, to ascertain whether something was cooling or
+      still alive. I remained slightly mobilized, as if readiness itself were the
+      condition for staying connected.
+    </p>
 
-  <p>
-    I carried threads forward in my head. I maintained coherence where none was
-    being built. I supplied meaning where none was arriving. Attraction was
-    doing the signalling, but something else was doing the holding.
-  </p>
+    <p>
+      I could feel the cost in how little margin remained. Not exhaustion—there
+      was still energy—but a narrowing. Fewer interactions that felt complete.
+    </p>
 
-  <p>
-    That imbalance can’t persist indefinitely, because it’s asymmetrical. One
-    side keeps supplying structure, time, and regulation; the other never takes
-    them up. Eventually, the cost is felt as strain without return.
-  </p>
+    <p>
+      This is where the system compensates. When continuity isn’t provided
+      externally, it gets simulated internally.
+    </p>
 
-  <p>
-    That was the point where continuation stopped being a choice. Not because I
-    decided differently, but because my system no longer supported the load. What
-    had been possible through effort alone was no longer possible at all.
-  </p>
+    <p>
+      I carried threads forward in my head. I maintained coherence where none was
+      being built. I supplied meaning where none was arriving. Attraction was
+      doing the signalling, but something else was doing the holding.
+    </p>
 
-  <p>
-    I couldn’t tell whether what had failed was my capacity to continue, or the
-    expectation that attraction was meant to do more than it can.
-  </p>
+    <p>
+      That imbalance can’t persist indefinitely, because it’s asymmetrical. One
+      side keeps supplying structure, time, and regulation; the other never takes
+      them up. Eventually, the cost is felt as strain without return.
+    </p>
 
-  <p>
-    But, what changed wasn’t attraction itself, but where it began to sit.
-  </p>
+    <p>
+      That was the point where continuation stopped being a choice. Not because I
+      decided differently, but because my system no longer supported the load. What
+      had been possible through effort alone was no longer possible at all.
+    </p>
 
-  <p>
-    Once it stopped carrying continuity, it returned to what it actually does.
-    It would register. It could spark. Then it passed. I didn’t need it to give
-    momentum, or depth, or to hold an outcome.
-  </p>
+    <p>
+      I couldn’t tell whether what had failed was my capacity to continue, or the
+      expectation that attraction was meant to do more than it can.
+    </p>
 
-  <p>
-    Once time was allowed back into the process. Interest no longer implied
-    availability and presence no longer required extension. If something
-    continued, it did so because something else had entered—not because I was
-    holding it together.
-  </p>
+    <p>
+      But, what changed wasn’t attraction itself, but where it began to sit.
+    </p>
 
-  <p>
-    And when connection does arrive, it arrives differently. Not complete all at
-    once but open and unfolding. Nothing needs to be managed into place. Nothing
-    is asking to be sustained ahead of itself.
-  </p>
+    <p>
+      Once it stopped carrying continuity, it returned to what it actually does.
+      It would register. It could spark. Then it passed. I didn’t need it to give
+      momentum, or depth, or to hold an outcome.
+    </p>
 
-  <p>
-    The relief wasn’t in stopping. It was in no longer asking attraction to do
-    the work of time.
-  </p>
+    <p>
+      Once time was allowed back into the process. Interest no longer implied
+      availability and presence no longer required extension. If something
+      continued, it did so because something else had entered—not because I was
+      holding it together.
+    </p>
+
+    <p>
+      And when connection does arrive, it arrives differently. Not complete all at
+      once but open and unfolding. Nothing needs to be managed into place. Nothing
+      is asking to be sustained ahead of itself.
+    </p>
+
+    <p>
+      The relief wasn’t in stopping. It was in no longer asking attraction to do
+      the work of time.
+    </p>
+  </article>
 </BaseLayout>
+
+<script define:vars={{ PASSWORD, STORAGE_KEY }}>
+  function showGate() {
+    document.getElementById("gate").style.display = "block";
+    document.getElementById("content").style.display = "none";
+  }
+
+  function showContent() {
+    document.getElementById("gate").style.display = "none";
+    document.getElementById("content").style.display = "block";
+  }
+
+  function unlock() {
+    const input = document.getElementById("pw");
+    if (input.value === PASSWORD) {
+      sessionStorage.setItem(STORAGE_KEY, "1");
+      showContent();
+    } else {
+      alert("Incorrect password");
+      input.focus();
+      input.select();
+    }
+  }
+
+  // Initialize
+  if (sessionStorage.getItem(STORAGE_KEY) === "1") {
+    showContent();
+  } else {
+    showGate();
+  }
+
+  // Wire events
+  document.getElementById("enter").addEventListener("click", unlock);
+  document.getElementById("pw").addEventListener("keydown", (e) => {
+    if (e.key === "Enter") unlock();
+  });
+</script>
+
+<style>
+  #gate {
+    max-width: 32rem;
+    margin: 3rem auto;
+  }
+
+  .gate-row {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .gate-row input {
+    flex: 1;
+    min-width: 0;
+  }
+</style>

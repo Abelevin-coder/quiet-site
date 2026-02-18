@@ -4,7 +4,8 @@ import "../styles/global.css";
 const { title = "Index" } = Astro.props;
 
 const path = Astro.url.pathname;
-const isActive = (href: string) => (href === "/" ? path === "/" : path.startsWith(href));
+const isActive = (href: string) =>
+  href === "/" ? path === "/" : path.startsWith(href);
 ---
 
 <!doctype html>
@@ -19,11 +20,26 @@ const isActive = (href: string) => (href === "/" ? path === "/" : path.startsWit
     <header>
       <nav aria-label="Primary">
         <a href="/" class={isActive("/") ? "active" : ""}>Home</a>
-        <a href="/readings" class={isActive("/readings") ? "active" : ""}>Readings</a>
-        <a href="/or-lines" class={isActive("/or-lines") ? "active" : ""}>Or lines</a>
-        <a href="/gpts" class={isActive("/gpts") ? "active" : ""}>GPTs</a>
-        <a href="/decision-framing" class={isActive("/decision-framing") ? "active" : ""}>Decision Framing</a>
-        <a href="/commitment-review" class={isActive("/commitment-review") ? "active" : ""}>Commitment Review</a>
+
+        <a href="/readings" class={isActive("/readings") ? "active" : ""}>
+          Readings
+        </a>
+
+        <a href="/advisory" class={isActive("/advisory") ? "active" : ""}>
+          Advisory
+        </a>
+
+        <a href="/case-studies" class={isActive("/case-studies") ? "active" : ""}>
+          Case Studies
+        </a>
+
+        <a href="/or-lines" class={isActive("/or-lines") ? "active" : ""}>
+          Or Lines
+        </a>
+
+        <a href="/gpts" class={isActive("/gpts") ? "active" : ""}>
+          GPTs
+        </a>
       </nav>
     </header>
 

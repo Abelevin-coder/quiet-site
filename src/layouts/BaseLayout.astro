@@ -22,10 +22,8 @@ const isActive = (href: string) => (href === "/" ? path === "/" : path.startsWit
         <a href="/readings" class={isActive("/readings") ? "active" : ""}>Readings</a>
         <a href="/or-lines" class={isActive("/or-lines") ? "active" : ""}>Or lines</a>
         <a href="/gpts" class={isActive("/gpts") ? "active" : ""}>GPTs</a>
-
-        <!-- Same routes, advisory-facing labels -->
-        <a href="/clarification" class={isActive("/clarification") ? "active" : ""}>Decision Framing</a>
-        <a href="/eligibility" class={isActive("/eligibility") ? "active" : ""}>Commitment Review</a>
+        <a href="/decision-framing" class={isActive("/decision-framing") ? "active" : ""}>Decision Framing</a>
+        <a href="/commitment-review" class={isActive("/commitment-review") ? "active" : ""}>Commitment Review</a>
       </nav>
     </header>
 

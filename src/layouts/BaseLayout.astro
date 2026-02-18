@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+
 const { title = "Index" } = Astro.props;
 
 const path = Astro.url.pathname;
@@ -15,19 +16,21 @@ const isActive = (href: string) => (href === "/" ? path === "/" : path.startsWit
   </head>
 
   <body>
-  <header>
-    <nav aria-label="Primary">
-      <a href="/" class={isActive("/") ? "active" : ""}>Home</a>
-      <a href="/readings" class={isActive("/readings") ? "active" : ""}>Readings</a>
-      <a href="/or-lines" class={isActive("/or-lines") ? "active" : ""}>Or lines</a>
-      <a href="/gpts" class={isActive("/gpts") ? "active" : ""}>GPTs</a>
-      <a href="/clarification" class={isActive("/clarification") ? "active" : ""}>Clarification</a>
-      <a href="/eligibility" class={isActive("/eligibility") ? "active" : ""}>Eligibility</a>
-    </nav>
-  </header>
+    <header>
+      <nav aria-label="Primary">
+        <a href="/" class={isActive("/") ? "active" : ""}>Home</a>
+        <a href="/readings" class={isActive("/readings") ? "active" : ""}>Readings</a>
+        <a href="/or-lines" class={isActive("/or-lines") ? "active" : ""}>Or lines</a>
+        <a href="/gpts" class={isActive("/gpts") ? "active" : ""}>GPTs</a>
 
-  <main>
-    <slot />
-  </main>
-</body>
+        <!-- Same routes, advisory-facing labels -->
+        <a href="/clarification" class={isActive("/clarification") ? "active" : ""}>Decision Framing</a>
+        <a href="/eligibility" class={isActive("/eligibility") ? "active" : ""}>Commitment Review</a>
+      </nav>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+  </body>
 </html>
